@@ -5,9 +5,8 @@ import os
 import datetime
 import xlsxwriter
 
-st_name = 'Aashish'
+st_name = 'jai nath jha'
 def mark_present(st_name):
-
 	names = os.listdir('output/')
 	print(names)
 
@@ -19,9 +18,9 @@ def mark_present(st_name):
 		print("Creating Spreadsheet with Title: " + sub)
 		sheet = workbook.add_worksheet() 
 		for i in names:
-		    sheet.write(count, 0, i)
-		    count += 1
-		workbook.close() 
+			sheet.write(count, 0, i)
+			count += 1
+			workbook.close() 
 
 	rb = xlrd.open_workbook('attendance/' + sub + '.xlsx')
 	wb = copy(rb)
@@ -31,12 +30,12 @@ def mark_present(st_name):
 
 	count = 2
 	for i in names:
-	    if i in st_name:
-              sheet.write(count, 1, 'P')
-	    else:
-              sheet.write(count, 1, 'A')
-	    sheet.write(count, 0, i)
-	    count += 1
+		if i in st_name:
+			sheet.write(count, 1, 'P')
+		else:
+			sheet.write(count, 1, 'A')
+			sheet.write(count, 0, i)
+			count += 1
 
 	wb.save('attendance/' + sub + '.xlsx')
 
